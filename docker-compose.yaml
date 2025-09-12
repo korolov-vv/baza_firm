@@ -10,6 +10,26 @@ services:
     ports:
       - "15432:5432"
 
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.2
+    restart: always
+    entrypoint: /opt/keycloak/bin/kc.sh start-dev --import-realm
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgresql:5432/bazafirm
+      KC_DB_USERNAME: bazafirm
+      KC_DB_PASSWORD: bazafirm
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: Pa55w0rd
+      KEYCLOAK_PROFILE_FEATURE_UPLOAD: enabled
+    command: ["-Dkeycloak.profile.feature.token_exchange=enabled"]
+    volumes:
+      - ./keycloak/keycloak-config/keycloak-config.json:/opt/keycloak/data/import/keycloak-config.json
+    ports:
+      - "8082:8080"
+    depends_on:
+      - postgresql
+
   minio:
     image: docker.io/bitnami/minio:2021
     environment:
