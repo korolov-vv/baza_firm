@@ -1,6 +1,7 @@
 services:
   postgresql:
     build: docker/postgresql
+    restart: always
     volumes:
       - postgresql_bazafirm:/var/lib/postgresql/data/
     environment:
@@ -11,12 +12,12 @@ services:
       - "15432:5432"
 
   keycloak:
-    image: quay.io/keycloak/keycloak:23.0.2
+    image: quay.io/keycloak/keycloak:26.4.0
     restart: always
     entrypoint: /opt/keycloak/bin/kc.sh start-dev --import-realm
     environment:
       KC_DB: postgres
-      KC_DB_URL: jdbc:postgresql://postgresql:5432/bazafirm
+      KC_DB_URL: jdbc:postgresql://postgresql:5432/postgres
       KC_DB_USERNAME: bazafirm
       KC_DB_PASSWORD: bazafirm
       KEYCLOAK_ADMIN: admin
@@ -25,6 +26,7 @@ services:
     command: ["-Dkeycloak.profile.feature.token_exchange=enabled"]
     volumes:
       - ./keycloak/keycloak-config/keycloak-config.json:/opt/keycloak/data/import/keycloak-config.json
+      - ./keycloak/keycloak-customer-config/keycloak-customer-config.json:/opt/keycloak/data/import/keycloak-customer-config.json
     ports:
       - "8082:8080"
     depends_on:
@@ -32,6 +34,7 @@ services:
 
   minio:
     image: docker.io/bitnami/minio:2021
+    restart: always
     environment:
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minio123
@@ -43,6 +46,7 @@ services:
 
   baza_firm:
     build: docker/baza_firm
+    restart: always
     container_name: baza_firm
     depends_on:
       - postgresql
