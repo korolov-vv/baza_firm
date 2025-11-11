@@ -2,8 +2,8 @@ FROM quay.io/keycloak/keycloak:26.4.0
 
 WORKDIR /opt/keycloak
 
-ENV KC_DB: postgres \
-    KEYCLOAK_PROFILE_FEATURE_UPLOAD: enabled
+ENV KC_DB=postgres \
+    KEYCLOAK_PROFILE_FEATURE_UPLOAD=enabled
 
 COPY ./keycloak/keycloak-config/keycloak-config.json /opt/keycloak/data/import/keycloak-config.json
 COPY ./keycloak/keycloak-customer-config/keycloak-customer-config.json /opt/keycloak/data/import/keycloak-customer-config.json
