@@ -1,7 +1,6 @@
 app = "keycloak-bazafirm"
 
 [build]
-  dockerfile = "docker-compose.yaml"
 
 [http_service]
   internal_port = 8082
