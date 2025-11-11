@@ -17,4 +17,3 @@ services:
       - ./keycloak/keycloak-customer-config/keycloak-customer-config.json:/opt/keycloak/data/import/keycloak-customer-config.json
     ports:
       - "8082:8080"
-    
