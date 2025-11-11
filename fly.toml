@@ -1,4 +1,5 @@
 app = "keycloak-bazafirm"
+primary_region = 'fra'
 
 [build]
 

@@ -13,6 +13,8 @@ ENV KC_DB: postgres \
 COPY ./keycloak/keycloak-config/keycloak-config.json /opt/keycloak/data/import/keycloak-config.json
 COPY ./keycloak/keycloak-customer-config/keycloak-customer-config.json /opt/keycloak/data/import/keycloak-customer-config.json
 
+VOLUME ["/opt/keycloak/data"]
+
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh start-dev --import-realm"]
 CMD ["-Dkeycloak.profile.feature.token_exchange=enabled"]
 
