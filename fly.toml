@@ -4,6 +4,6 @@ primary_region = 'fra'
 [build]
 
 [http_service]
-  internal_port = 8082
+  internal_port = 8080
   force_https = true
   auto_start_machines = true

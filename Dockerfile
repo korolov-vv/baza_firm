@@ -18,4 +18,4 @@ VOLUME ["/opt/keycloak/data"]
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 CMD [ "start-dev", "--import-realm", "-Dkeycloak.profile.feature.token_exchange=enabled"]
 
-EXPOSE 8082
+EXPOSE 8080
