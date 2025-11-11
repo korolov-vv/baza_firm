@@ -1,4 +1,4 @@
-app = "bazafirm-keycloak"
+app = "keycloak-bazafirm"
 
 [build]
 
