@@ -10,12 +10,7 @@ ENV KC_DB=postgres \
     KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN} \
     KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_ADMIN_PASSWORD}
 
-COPY ./keycloak/keycloak-config/keycloak-config.json /opt/keycloak/data/import/keycloak-config.json
-COPY ./keycloak/keycloak-customer-config/keycloak-customer-config.json /opt/keycloak/data/import/keycloak-customer-config.json
-
-VOLUME ["/opt/keycloak/data"]
-
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD [ "start", "http-enabled=false", "--import-realm", "-Dkeycloak.profile.feature.token_exchange=enabled" ]
+CMD [ "start", "-Dkeycloak.profile.feature.token_exchange=enabled" ]
 
 EXPOSE 8080
