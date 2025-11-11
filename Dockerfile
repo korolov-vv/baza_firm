@@ -14,6 +14,6 @@ COPY ./keycloak/keycloak-config/keycloak-config.json /opt/keycloak/data/import/k
 COPY ./keycloak/keycloak-customer-config/keycloak-customer-config.json /opt/keycloak/data/import/keycloak-customer-config.json
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh start-dev --import-realm"]
-CMD ["start", "--import-realm", "-Dkeycloak.profile.feature.token_exchange=enabled"]
+CMD ["-Dkeycloak.profile.feature.token_exchange=enabled"]
 
 EXPOSE 8082
