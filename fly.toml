@@ -5,13 +5,6 @@ primary_region = 'fra'
   path = "/metrics"
   port = 8080
 
-[env]
-  KC_DB_URL: ${KC_DB_URL}
-  KC_DB_USERNAME: ${KC_DB_USERNAME}
-  KC_DB_PASSWORD: ${KC_DB_PASSWORD}
-  KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
-  KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
-
 [experimental]
   allowed_public_ports = []
   auto_rollback = true
