@@ -1,7 +1,8 @@
 app = "keycloak-bazafirm"
 
 [build]
-
+  dockerfile = "Dockerfile"
+  
 [http_service]
   internal_port = 8082
   force_https = true
