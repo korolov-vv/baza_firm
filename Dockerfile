@@ -3,6 +3,11 @@ FROM quay.io/keycloak/keycloak:26.4.0
 WORKDIR /opt/keycloak
 
 ENV KC_DB=postgres \
+    KC_DB_URL=${DATABASE_URL} \
+    KC_DB_USERNAME=${KC_DB_USERNAME} \
+    KC_DB_PASSWORD=${KC_DB_PASSWORD} \
+    KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN} \
+    KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_ADMIN_PASSWORD} \
     KEYCLOAK_PROFILE_FEATURE_UPLOAD=enabled
 
 COPY ./keycloak/keycloak-config/keycloak-config.json /opt/keycloak/data/import/keycloak-config.json
