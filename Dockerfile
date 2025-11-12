@@ -11,6 +11,6 @@ ENV KC_HEALTH_ENABLED=true \
     KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_ADMIN_PASSWORD}
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD [ "start", "--proxy", "edge" ]
+CMD [ "start" ]
 
 EXPOSE 8080
