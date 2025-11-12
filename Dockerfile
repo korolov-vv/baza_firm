@@ -2,7 +2,7 @@ FROM quay.io/keycloak/keycloak:26.4.0
 
 WORKDIR /opt/keycloak
 
-ENV KC_DB=bazafirm-keycloak \
+ENV KC_DB=postgres \
     KC_DB_URL=${DATABASE_URL} \
     KC_DB_USERNAME=${KC_DB_USERNAME} \
     KC_DB_PASSWORD=${KC_DB_PASSWORD} \
