@@ -8,7 +8,8 @@ ENV KC_DB=postgres \
     KC_DB_PASSWORD=${KC_DB_PASSWORD} \
     KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN} \
     KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_ADMIN_PASSWORD} \
-    KEYCLOAK_PROFILE_FEATURE_UPLOAD=enabled
+    KEYCLOAK_PROFILE_FEATURE_UPLOAD=enabled \
+    JAVA_OPTS_APPEND="-Djava.net.preferIPv4Stack=false"
 
 COPY ./keycloak/keycloak-config/keycloak-config.json /opt/keycloak/data/import/keycloak-config.json
 COPY ./keycloak/keycloak-customer-config/keycloak-customer-config.json /opt/keycloak/data/import/keycloak-customer-config.json
