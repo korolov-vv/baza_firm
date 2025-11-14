@@ -23,6 +23,8 @@ ENV KC_DB=postgres \
     KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_ADMIN_PASSWORD} \
     KC_HOSTNAME=${KC_HOSTNAME} \
     KC_HTTP_PORT=8080 \
+    KC_HTTP_ENABLED=true \
+    KC_PROXY=edge \
     KEYCLOAK_PROFILE_FEATURE_UPLOAD=enabled \
     KC_HEALTH_ENABLED=true
 
@@ -32,6 +34,6 @@ COPY ./keycloak/keycloak-customer-config/keycloak-customer-config.json /opt/keyc
 VOLUME ["/opt/keycloak/data"]
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD [ "start", "--import-realm", "-Dkeycloak.profile.feature.token_exchange=enabled"]
+CMD [ "start-dev", "--import-realm", "-Dkeycloak.profile.feature.token_exchange=enabled"]
 
 EXPOSE 8080
