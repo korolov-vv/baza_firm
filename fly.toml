@@ -3,13 +3,13 @@ primary_region = 'fra'
 
 [metrics]
   path = "/metrics"
-  port = 9000
+  port = 8443
 
 [experimental]
   allowed_public_ports = []
   auto_rollback = true
 
 [http_service]
-  internal_port = 9000
+  internal_port = 8443
   force_https = true
   auto_start_machines = true
