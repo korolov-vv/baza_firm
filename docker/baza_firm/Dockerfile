@@ -13,8 +13,8 @@ COPY id_rsa /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa && \
     ssh-keyscan -H github.com >> /root/.ssh/known_hosts
 
-RUN git clone --branch develop git@github.com:korolov-vv/baza-firm.git . && \ 
-    git pull 
+RUN git clone --branch develop git@github.com:korolov-vv/baza-firm.git .
+RUN git pull 
 
 RUN rm -r /root/.ssh
 RUN gradle clean build -x test
