@@ -11,9 +11,11 @@ services:
       KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       KEYCLOAK_PROFILE_FEATURE_UPLOAD: enabled
+      KC_SPI_EVENTS_LISTENER_HTTP_EVENT_LISTENER_SERVER_URI: ${KC_EVENT_LISTENER_SERVER_URI}
     command: ["-Dkeycloak.profile.feature.token_exchange=enabled"]
     volumes:
       - ./keycloak/keycloak-config/keycloak-config.json:/opt/keycloak/data/import/keycloak-config.json
       - ./keycloak/keycloak-customer-config/keycloak-customer-config.json:/opt/keycloak/data/import/keycloak-customer-config.json
+      - ./keycloak/keycloak-events-0.50.jar:/opt/keycloak/providers/keycloak-events-0.50.jar
     ports:
       - "8082:8080"
