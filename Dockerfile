@@ -30,6 +30,7 @@ ENV KC_DB=postgres \
 
 COPY ./keycloak/keycloak-config/keycloak-config.json /opt/keycloak/data/import/keycloak-config.json
 COPY ./keycloak/keycloak-customer-config/keycloak-customer-config.json /opt/keycloak/data/import/keycloak-customer-config.json
+COPY ./keycloak/keycloak-events-0.50.jar /opt/keycloak/providers/keycloak-events-0.50.jar
 
 VOLUME ["/opt/keycloak/data"]
 
